@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tria Juliyanti | Penulis Portofolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pastel-pink: #fce4ec;
+            --deep-pink: #f06292;
+            --soft-brown: #8d6e63;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: #fff5f7;
+            color: #5d4037;
+            scroll-behavior: smooth;
+        }
+
+        .font-cursive {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(240, 98, 146, 0.2);
+            border-radius: 20px;
+        }
+
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(240, 98, 146, 0.1);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--deep-pink);
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .floating-emoji {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .strawberry-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .strawberry-list li::before {
+            content: "🍓";
+            position: absolute;
+            left: 0;
+            font-size: 0.8rem;
+            top: 0.1rem;
+        }
+
+        .profile-frame {
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-frame::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 2px dashed #f06292;
+            border-radius: 50%;
+            animation: spin 20s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigasi -->
+    <nav class="fixed w-full z-50 top-0 bg-white/80 backdrop-blur-md border-b border-pink-100">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold font-cursive text-pink-500">Tria Juliyanti</div>
+            <div class="hidden md:flex space-x-8 font-medium">
+                <a href="#home" class="nav-link hover:text-pink-500">Beranda</a>
+                <a href="#about" class="nav-link hover:text-pink-500">Tentang</a>
+                <a href="#portfolio" class="nav-link hover:text-pink-500">Portofolio</a>
+                <a href="#contact" class="nav-link hover:text-pink-500">Kontak</a>
+            </div>
+            <div class="md:hidden text-pink-500 text-2xl cursor-pointer" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white w-full border-b border-pink-100 px-6 py-4 flex flex-col space-y-4">
+            <a href="#home" onclick="toggleMenu()">Beranda</a>
+            <a href="#about" onclick="toggleMenu()">Tentang</a>
+            <a href="#portfolio" onclick="toggleMenu()">Portofolio</a>
+            <a href="#contact" onclick="toggleMenu()">Kontak</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen pt-24 flex items-center px-6 overflow-hidden">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="order-2 md:order-1">
+                <h2 class="text-pink-400 font-semibold tracking-widest mb-2 uppercase text-sm">Selamat Datang di Dunia Diksi</h2>
+                <h1 class="text-5xl md:text-6xl font-bold mb-4 text-pink-600">Tria Juliyanti</h1>
+                <h3 class="text-2xl font-medium text-gray-600 mb-6 italic">Penulis yang Menari dengan Rangkaian Kata 📝</h3>
+                <p class="text-lg text-gray-500 border-l-4 border-pink-300 pl-4 mb-8 leading-relaxed">
+                    "Teruslah bersikeras menerjang ombak deras meskipun hampir saja menenggelamkan kau. 🌊"
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#portfolio" class="bg-pink-500 text-white px-8 py-3 rounded-full hover:bg-pink-600 transition shadow-lg shadow-pink-200">Lihat Portofolio</a>
+                    <a href="#contact" class="border-2 border-pink-500 text-pink-500 px-8 py-3 rounded-full hover:bg-pink-50 transition">Hubungi Saya</a>
+                </div>
+            </div>
+            <div class="order-1 md:order-2 flex justify-center relative">
+                <div class="profile-frame">
+                    <div class="w-64 h-64 md:w-80 md:h-80 bg-pink-100 rounded-full overflow-hidden border-8 border-white shadow-2xl">
+                        <!-- Foto Anda Berhasil Dimasukkan Disini -->
+                        <img src="c:\Users\Baihaqi Althaf\Downloads\WhatsApp Image 2026-02-06 at 19.59.48.jpeg" alt="Foto Tria Juliyanti" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="absolute -top-4 -right-4 text-4xl floating-emoji">🍓</div>
+                <div class="absolute -bottom-4 -left-4 text-4xl floating-emoji" style="animation-delay: 1s">🍫</div>
+                <div class="absolute top-1/2 -right-10 text-4xl floating-emoji" style="animation-delay: 2s">🐱</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tentang Saya -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold font-cursive text-pink-500 mb-2">Tentang Saya</h2>
+                <div class="w-24 h-1 bg-pink-200 mx-auto rounded-full"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="glass-card p-8 hover-lift">
+                    <h3 class="text-xl font-bold mb-4 flex items-center text-pink-600"><i class="fas fa-heart text-pink-400 mr-2"></i> Profil & Minat</h3>
+                    <p class="leading-relaxed text-gray-700">
+                        Seseorang yang berselancar dalam diksi elok, selalu menari dengan rangkaian kata-kata 📝. Sangat mencintai tumpukan buku harum, cover yang indah, stroberi asam 🍓, dan makanan manis—terutama lelehan cokelat yang membeku indah 🍫. Oh, dan tentu saja, cinta mati pada buntalan bulu bernama kucing 🐱.
+                    </p>
+                    <div class="mt-6">
+                        <h4 class="font-bold text-pink-500 mb-2">Riwayat Pendidikan:</h4>
+                        <ul class="space-y-1 text-gray-600 text-sm">
+                            <li><i class="fas fa-school mr-2 text-pink-300"></i> SDN Cigadung</li>
+                            <li><i class="fas fa-school mr-2 text-pink-300"></i> SMP Negeri 1 Subang</li>
+                            <li><i class="fas fa-school mr-2 text-pink-300"></i> SMA Negeri 1 Subang</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="glass-card p-8 hover-lift">
+                    <h3 class="text-xl font-bold mb-4 flex items-center text-pink-600"><i class="fas fa-star text-pink-400 mr-2"></i> Keunggulan</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-pink-50 p-3 rounded-xl border border-pink-100 text-center">
+                            <i class="fas fa-clock text-pink-400 mb-2 text-xl"></i>
+                            <p class="text-xs font-bold uppercase text-gray-500">Manajemen Waktu</p>
+                        </div>
+                        <div class="bg-pink-50 p-3 rounded-xl border border-pink-100 text-center">
+                            <i class="fas fa-check-double text-pink-400 mb-2 text-xl"></i>
+                            <p class="text-xs font-bold uppercase text-gray-500">Disiplin & Teliti</p>
+                        </div>
+                        <div class="bg-pink-50 p-3 rounded-xl border border-pink-100 text-center">
+                            <i class="fas fa-lightbulb text-pink-400 mb-2 text-xl"></i>
+                            <p class="text-xs font-bold uppercase text-gray-500">Kreativitas</p>
+                        </div>
+                        <div class="bg-pink-50 p-3 rounded-xl border border-pink-100 text-center">
+                            <i class="fas fa-shield-halved text-pink-400 mb-2 text-xl"></i>
+                            <p class="text-xs font-bold uppercase text-gray-500">Jujur & Bertanggung Jawab</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portofolio -->
+    <section id="portfolio" class="py-20 bg-pink-50">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold font-cursive text-pink-500 mb-4">Portofolio Karya</h2>
+            <div class="grid md:grid-cols-2 gap-10 mt-12">
+                <!-- Karya 1: Medium -->
+                <div class="glass-card overflow-hidden group text-left">
+                    <div class="relative overflow-hidden h-56 bg-pink-200 flex items-center justify-center">
+                        <i class="fas fa-scroll text-7xl text-white opacity-50"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-pink-600 mb-4">Asaku Sekonyong-konyong Sirna</h3>
+                        <a href="https://medium.com/@beyimiwlo/asaku-sekonyong-konyong-sirna-688f4b6bf13f" target="_blank" class="inline-flex items-center bg-pink-500 text-white px-6 py-2 rounded-full hover:bg-pink-600 transition shadow-md">
+                            Baca di Medium <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Karya 2: Wattpad -->
+                <div class="glass-card overflow-hidden group text-left">
+                    <div class="relative overflow-hidden h-56 bg-orange-100 flex items-center justify-center">
+                        <i class="fab fa-wikipedia-w text-7xl text-orange-400 opacity-50"></i>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-orange-600 mb-4">Tenggelam</h3>
+                        <a href="https://www.wattpad.com/story/374526017-tenggelam" target="_blank" class="inline-flex items-center bg-orange-500 text-white px-6 py-2 rounded-full hover:bg-orange-600 transition shadow-md">
+                            Baca di Wattpad <i class="fas fa-book-open ml-2 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pengalaman & Prestasi -->
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <h2 class="text-3xl font-bold font-cursive text-center text-pink-500 mb-12">Pengalaman & Prestasi</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-pink-50 p-6 rounded-2xl border-l-8 border-pink-400 shadow-sm">
+                    <h3 class="text-lg font-bold text-pink-600 mb-4 italic flex items-center"><i class="fas fa-users mr-2"></i> Organisasi</h3>
+                    <ul class="strawberry-list text-sm text-gray-700">
+                        <li>Ekstrakurikuler <b>Bengkel Sastra, BIOS, dan SCA</b></li>
+                        <li><b>Ketua Divisi Prosa</b></li>
+                        <li><b>Ketua Divisi Desain Grafis</b></li>
+                        <li><b>Humas SCA</b></li>
+                        <li><b>Panitia Lomba Bulan Bahasa</b></li>
+                    </ul>
+                </div>
+                <div class="bg-pink-50 p-6 rounded-2xl border-l-8 border-yellow-400 shadow-sm">
+                    <h3 class="text-lg font-bold text-yellow-600 mb-4 italic flex items-center"><i class="fas fa-trophy mr-2"></i> Prestasi</h3>
+                    <ul class="strawberry-list text-sm text-gray-700">
+                        <li><b>Juara 2 Lomba Cipta Cerpen</b> - SMA Negeri 1 Subang (Bulan Bahasa 2023)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak -->
+    <footer id="contact" class="py-20 bg-pink-100 text-center px-6">
+        <h2 class="text-3xl font-bold font-cursive text-pink-500 mb-8">Mari Menulis Bersama</h2>
+        <div class="flex justify-center space-x-6 mb-12">
+            <a href="https://instagram.com/iaberries" target="_blank" class="text-pink-500 text-3xl hover:scale-110 transition"><i class="fab fa-instagram"></i></a>
+            <a href="https://wa.me/62895346889544" target="_blank" class="text-green-500 text-3xl hover:scale-110 transition"><i class="fab fa-whatsapp"></i></a>
+            <a href="mailto:triajuliyanti04@gmail.com" class="text-pink-400 text-3xl hover:scale-110 transition"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p class="text-xs text-gray-400">&copy; 2024 Tria — Dibuat dengan cinta 🍓</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
